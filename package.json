@@ -1,0 +1,15 @@
+{
+  "name": "enterprise-management-system",
+  "version": "1.0.0",
+  "description": "Ứng dụng quản lý thiết bị doanh nghiệp",
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd Backend && python app.py",
+    "frontend": "cd Frontend && npm start",
+    "build": "cd Frontend && npm run build",
+    "test": "cd Backend && python -m pytest && cd ../Frontend && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

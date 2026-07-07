@@ -1,0 +1,85 @@
+.sidebar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar-menu :global(.ant-menu) {
+  background: transparent;
+  border: none;
+}
+
+.sidebar-menu :global(.ant-menu-item),
+.sidebar-menu :global(.ant-menu-submenu-title) {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.sidebar-menu :global(.ant-menu-item:hover),
+.sidebar-menu :global(.ant-menu-submenu-title:hover) {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.sidebar-menu :global(.ant-menu-item-selected) {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+.header {
+  background: white;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding: 12px 24px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.app-title {
+  color: #1890ff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-button :global(.ant-btn) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1890ff;
+}
+
+.user-button :global(.ant-btn:hover) {
+  color: #40a9ff;
+}
+
+.main-content {
+  background: #f5f7fa;
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+}

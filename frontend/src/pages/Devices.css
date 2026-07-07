@@ -1,0 +1,15 @@
+.devices-container {
+  padding: 24px;
+}
+
+.devices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.devices-header h1 {
+  color: #1890ff;
+  margin: 0;
+}

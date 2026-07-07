@@ -1,0 +1,154 @@
+Dưới đây là hướng dẫn chi tiết cách chạy ứng dụng:
+
+## 📋 Yêu Cầu Cơ Bản
+- Node.js (v14+)
+- Python 3.8+
+- PostgreSQL (hoặc dùng mock data)
+- VS Code hoặc terminal
+
+## 🚀 Cách Chạy Ứng Dụng
+
+### **Bước 1: Chuẩn Bị Frontend**
+
+Mở terminal PowerShell, navigate đến folder frontend:
+
+```powershell
+cd d:\ThucTap\du_an_truong\frontend
+```
+
+Cài đặt dependencies:
+
+```powershell
+npm install
+```
+
+### **Bước 2: Chuẩn Bị Backend**
+
+Mở terminal PowerShell mới, navigate đến folder backend:
+
+```powershell
+cd d:\ThucTap\du_an_truong\backend
+```
+
+Tạo virtual environment Python:
+
+```powershell
+python -m venv venv
+```
+
+Kích hoạt virtual environment:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+Cài đặt dependencies:
+
+```powershell
+pip install -r requirements.txt
+```
+
+### **Bước 3: Chạy Backend**
+
+Trong terminal backend (virtual environment đã kích hoạt):
+
+```powershell
+python app.py
+```
+
+Backend sẽ chạy tại: **http://localhost:5000**
+
+### **Bước 4: Chạy Frontend**
+
+Trong terminal frontend:
+
+```powershell
+npm start
+```
+
+Frontend sẽ mở tại: **http://localhost:3000**
+
+---
+
+## 🔐 Đăng Nhập
+
+Sử dụng tài khoản demo:
+
+- **Username:** `admin`
+- **Password:** `admin123`
+
+---
+
+## 📊 Các Module Có Sẵn
+
+1. ✅ **Bảng Điều Khiển** - Thống kê tổng quan
+2. ✅ **Quản Lý Người Dùng** - CRUD users
+3. ✅ **Nhân Sự** - CRUD employees
+4. ✅ **Thiết Bị** - CRUD devices
+5. ✅ **Công Việc** - CRUD tasks
+6. ✅ **Bộ Phận** - CRUD departments
+7. ✅ **Kho Lưu Trữ** - CRUD storage
+8. ✅ **Phân Quyền** - CRUD permissions
+9. ✅ **Thông Báo** - Notifications
+10. ✅ **Nhật Ký** - Audit logs
+11. ✅ **Báo Cáo** - Reports & Charts
+
+---
+
+## 📁 Cấu Trúc Thư Mục
+
+```
+d:\ThucTap\du_an_truong\
+├── frontend/               # React app
+│   ├── src/
+│   │   ├── pages/         # 10 page modules
+│   │   ├── components/    # Layout, etc
+│   │   ├── context/       # AuthContext
+│   │   └── api.js         # API client
+│   └── package.json
+│
+├── backend/               # Flask API
+│   ├── app.py            # Main app
+│   ├── models.py         # Database models
+│   ├── routes.py         # API endpoints
+│   ├── config.py         # Configuration
+│   └── requirements.txt   # Dependencies
+│
+└── database/
+    └── schema.sql         # PostgreSQL schema
+```
+
+---
+
+## ⚙️ Cấu Hình (Tùy Chọn)
+
+### Frontend (frontend/.env)
+```
+REACT_APP_API_URL=http://localhost:5000
+```
+
+### Backend (backend/.env)
+```
+FLASK_ENV=development
+DATABASE_URL=postgresql://user:password@localhost:5432/device_management
+JWT_SECRET=your_secret_key
+```
+
+---
+
+## 🎯 Dòng Lệnh Nhanh
+
+**Terminal 1 (Backend):**
+```powershell
+cd d:\ThucTap\du_an_truong\backend
+.\venv\Scripts\Activate.ps1
+python app.py
+```
+
+**Terminal 2 (Frontend):**
+```powershell
+cd d:\ThucTap\du_an_truong\frontend
+npm start
+```
+
+Xong! Ứng dụng sẽ chạy tại **http://localhost:3000** 🎉
