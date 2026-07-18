@@ -10,7 +10,8 @@ from models import (
     Permission,
     Notification,
     AuditLog,
-    Report
+    Report,
+    Storage
 )
 from datetime import datetime
 
@@ -667,18 +668,92 @@ def delete_storage(id):
 
 @roles_bp.route('', methods=['GET'])
 def get_roles():
-
     roles = Role.query.all()
 
     return jsonify({
-        "roles":[
+        "roles": [
             {
-                "id":r.id,
-                "role_name":r.role_name,
-                "description":r.description
+                "id": r.id,
+                "role_name": r.role_name,
+                "description": r.description
             }
             for r in roles
         ]
+    })
+
+
+@roles_bp.route('', methods=['POST'])
+def create_role():
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"message": "Không có dữ liệu gửi lên"}), 400
+
+    role_name = data.get("role_name")
+    description = data.get("description")
+
+    if not role_name:
+        return jsonify({"message": "Tên vai trò không được để trống"}), 400
+
+    # Kiểm tra trùng tên
+    exist = Role.query.filter_by(role_name=role_name).first()
+    if exist:
+        return jsonify({"message": "Vai trò đã tồn tại"}), 400
+
+    role = Role(
+        role_name=role_name,
+        description=description
+    )
+
+    db.session.add(role)
+    db.session.commit()
+
+    return jsonify({
+        "message": "Thêm vai trò thành công",
+        "role": {
+            "id": role.id,
+            "role_name": role.role_name,
+            "description": role.description
+        }
+    }), 201
+
+
+@roles_bp.route('/<int:id>', methods=['PUT'])
+def update_role(id):
+    role = Role.query.get(id)
+
+    if not role:
+        return jsonify({"message": "Không tìm thấy vai trò"}), 404
+
+    data = request.get_json()
+
+    role.role_name = data.get("role_name", role.role_name)
+    role.description = data.get("description", role.description)
+
+    db.session.commit()
+
+    return jsonify({
+        "message": "Cập nhật thành công",
+        "role": {
+            "id": role.id,
+            "role_name": role.role_name,
+            "description": role.description
+        }
+    })
+
+
+@roles_bp.route('/<int:id>', methods=['DELETE'])
+def delete_role(id):
+    role = Role.query.get(id)
+
+    if not role:
+        return jsonify({"message": "Không tìm thấy vai trò"}), 404
+
+    db.session.delete(role)
+    db.session.commit()
+
+    return jsonify({
+        "message": "Xóa vai trò thành công"
     })
 
 

@@ -110,16 +110,16 @@ export const deleteStorage = (id) =>
 // ================= PERMISSIONS =================
 
 export const getPermissions = () =>
-  api.get("/roles");
+  api.get("/roles/permissions");
 
 export const createPermission = (data) =>
-  api.post("/roles", data);
+  api.post("/roles/permissions", data);
 
 export const updatePermission = (id, data) =>
-  api.put(`/roles/${id}`, data);
+  api.put(`/roles/permissions/${id}`, data);
 
 export const deletePermission = (id) =>
-  api.delete(`/roles/${id}`);
+  api.delete(`/roles/permissions/${id}`);
 
 // ================= NOTIFICATIONS =================
 
