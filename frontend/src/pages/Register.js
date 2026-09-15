@@ -7,7 +7,7 @@ import {
   PhoneOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { register } from '../api';
 import './Register.css';
 
 const Register = () => {
@@ -27,10 +27,11 @@ const Register = () => {
       };
 
       // ✅ Sửa URL API
-      const response = await axios.post(
-        'http://localhost:5000/api/auth/register',
-        payload
-      );
+      //const response = await axios.post(
+        //'http://localhost:5000/api/auth/register',
+        //payload
+      //);
+      const response = await register(payload);
 
       message.success(response.data.message || 'Đăng ký thành công!');
       navigate('/login');
